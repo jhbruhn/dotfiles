@@ -176,6 +176,7 @@ bar {
 	#font pango:DejaVu Sans Mono, FontAwesome 11
         status_command bumblebee-status -m disk:home load cpu memory battery pasink pasource date time -p time.format="%H:%M" -t solarized-powerline 
 }
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 exec compton -f
 
