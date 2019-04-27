@@ -56,6 +56,7 @@ fi
 #syndaemon -K -i 0.1 -R -d
 xbindkeys &
 blueman-applet &
+setxkbmap -option caps:swapescape
 nm-applet --sm-disable &
 udiskie --no-automount --tray --use-udisks2 &
 dunst &
