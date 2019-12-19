@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 set laststatus=2
 filetype off                  " required
 set noshowmode
+set nu
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -15,6 +16,8 @@ Plugin 'valloric/youcompleteme'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'itchyny/lightline.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'embear/vim-localvimrc'
+"Plugin 'Conque-GDB'
 call vundle#end()            " required
 
 map <C-a> :Autoformat<CR>
@@ -33,3 +36,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
+"
+
+let g:localvimrc_sandbox=0
+let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/eurorack-modules/'
+
+let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*']
+
