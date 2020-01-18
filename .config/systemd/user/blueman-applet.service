@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth control applet.
+Documentation=man:blueman(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/blueman-applet
+
+[Install]
+WantedBy=sway-session.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=A lightweight Wayland network notification daemon
+Documentation=man:networkd-notify(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/networkd-notify
+
+[Install]
+WantedBy=sway-session.target
