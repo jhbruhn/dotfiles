@@ -10,10 +10,10 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  XKB_DEFAULT_LAYOUT=de exec sway
+# If running from tty1 start sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+  sway-service.sh
 fi
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -99,3 +99,4 @@ export PATH="/home/jhbruhn/bin:$PATH"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR=vim
+source /opt/ros/melodic/setup.zsh

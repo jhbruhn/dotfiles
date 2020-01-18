@@ -1,5 +1,6 @@
 [options]
 font = Iosevka Term, FontAwesome 10.85
+scrollback_lines = 1000000
 
 [colors]
 # Base16 Solarized Dark

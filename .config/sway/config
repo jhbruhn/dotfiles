@@ -16,6 +16,7 @@ input 1739:0:Synaptics_TM3072-002 {
   tap enabled
   dwt enabled
   accel_profile adaptive
+  tap_button_map lrm
 }
 # 27"
 output DP-6 {
@@ -231,18 +232,19 @@ bindsym XF86MonBrightnessUp exec brillo -A 3 -q -u 100000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	font pango:iosevka, FontAweseome 10.85
+#bar {
+#	font pango:iosevka, FontAweseome 10.85
 	#font pango:FontAwesome 11
 	#font pango:Inconsolata 10
 	#font pango:DejaVu Sans Mono, FontAwesome 11
-	swaybar_command waybar
+#	swaybar_command waybar
 #        status_command bumblebee-status -m disk:home load cpu memory battery pasink pasource date time -p time.format="%H:%M" -t solarized-powerline 
-}
+#}
 
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+
+exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec --no-startup-id blueman-applet &
-exec --no-startup-id mako &
 exec --no-startup-id swaylock -f 
 
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2 #002b36
