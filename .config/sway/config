@@ -241,7 +241,7 @@ bindsym XF86MonBrightnessUp exec brillo -A 3 -q -u 100000
 #        status_command bumblebee-status -m disk:home load cpu memory battery pasink pasource date time -p time.format="%H:%M" -t solarized-powerline 
 #}
 
-exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
 
 exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
