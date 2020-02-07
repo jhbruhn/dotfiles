@@ -8,8 +8,13 @@ After=graphical-session-pre.target
 [Service]
 Type=simple
 EnvironmentFile=-%h/.config/sway/env
-ExecStart=/usr/bin/sway
-Restart=on-failure
+Environment=WAYLAND_DISPLAY=""
+Environment=_WAYLAND_DISPLAY=""
+Environment=WAYLAND_SOCKET=""
+Environment=SWAYSOCK=""
+
+ExecStart=/usr/bin/dbus-run-session /usr/local/bin/sway-drm.sh
+Restart=always
 RestartSec=1
 TimeoutStopSec=10
 

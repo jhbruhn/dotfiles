@@ -20,36 +20,34 @@ input 1739:0:Synaptics_TM3072-002 {
 }
 # 27"
 output DP-6 {
-  position 0,0
+  position 1920,0
   resolution 1920x1080
   scale 1
 }
 
 output DP-4 {
-  position 0,0
+  position 1920,0
   resolution 1920x1080 
   scale 1 
 }
 
 # 24"
 output DP-5 {
-  position -1080,-385
+  position 0,0
   resolution 1920x1080
   scale 1
-  transform 270 
 }
 
 output DP-3 {
-  position -1080,-385
+  position 0,0
   resolution 1920x1080
   scale 1
-  transform 270
 }
 
 # internal
 
 output eDP-1 {
-  position 1920,0
+  position 3840,0
   resolution 2560x1440
   scale 1.5
 }
@@ -83,14 +81,14 @@ font pango:iosevka 9.85
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite 
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 set $launcher env PATH=/home/jhbruhn/bin:$PATH ~/.config/sway/sway_launcher #env MOZ_ENABLE_WAYLAND=1
 
-bindsym $mod+d exec exec termite --name launcher -e "sh -c \'$launcher\'"
+bindsym $mod+d exec exec alacritty --class launcher -e sh -c \'$launcher\'
 for_window [app_id="^launcher$"] floating enable, border none 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that

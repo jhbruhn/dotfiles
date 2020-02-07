@@ -98,5 +98,6 @@ export PATH="/home/jhbruhn/bin:$PATH"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR=vim
+export EDITOR=nvim
+alias vi='nvim'
 source /opt/ros/melodic/setup.zsh
