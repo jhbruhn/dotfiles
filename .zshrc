@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-  sway-service.sh
+  sway-user-service
 fi
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
