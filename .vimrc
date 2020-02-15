@@ -17,6 +17,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'itchyny/lightline.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'embear/vim-localvimrc'
+Plugin 'iCyMind/NeoSolarized'
 "Plugin 'Conque-GDB'
 call vundle#end()            " required
 
@@ -42,4 +43,6 @@ let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/eurorack-modules/'
 
 let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*']
+set termguicolors
+colorscheme NeoSolarized
 
