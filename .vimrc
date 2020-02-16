@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'iCyMind/NeoSolarized'
@@ -50,4 +51,4 @@ set termguicolors
 colorscheme NeoSolarized
 set background=dark
 let g:airline_powerline_fonts = 1
-
+let g:airline_solarized_bg='dark'
