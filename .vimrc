@@ -14,10 +14,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'iCyMind/NeoSolarized'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 "Plugin 'Conque-GDB'
 call vundle#end()            " required
 
@@ -45,4 +48,6 @@ let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/euro
 let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*']
 set termguicolors
 colorscheme NeoSolarized
+set background=dark
+let g:airline_powerline_fonts = 1
 

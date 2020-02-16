@@ -100,4 +100,5 @@ export PATH="/home/jhbruhn/bin:$PATH"
 
 export EDITOR=nvim
 alias vi='nvim'
+alias vim='nvim'
 source /opt/ros/melodic/setup.zsh
