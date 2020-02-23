@@ -46,9 +46,29 @@ filetype plugin indent on    " required
 let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/eurorack-modules/'
 
-let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*']
+let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*,/usr/bin/arm-none-eabi*']
 set termguicolors
 colorscheme NeoSolarized
 set background=dark
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
+
+" Use filetype detection and file-based automatic indenting.
+filetype plugin indent on
+
+" Use actual tab chars in Makefiles.
+
+" For everything else, use a tab width of 4 space chars.
+set tabstop=4       " The width of a TAB is set to 4.
+" Still it is a \t. It is just that
+" Vim will interpret it to be having
+" a width of 4.
+set shiftwidth=4    " Indents will have a width of 4.
+set softtabstop=4   " Sets the number of columns for a TAB.
+set expandtab       " Expand TABs to spaces.
+
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd BufNewFile,BufRead makefile* set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+nnoremap j jzz
+nnoremap k kzz

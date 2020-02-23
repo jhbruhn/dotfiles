@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="minimal"
 
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
@@ -102,3 +102,5 @@ export EDITOR=nvim
 alias vi='nvim'
 alias vim='nvim'
 source /opt/ros/melodic/setup.zsh
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
