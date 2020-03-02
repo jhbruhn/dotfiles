@@ -72,3 +72,5 @@ autocmd BufNewFile,BufRead makefile* set tabstop=8 shiftwidth=8 softtabstop=0 no
 
 nnoremap j jzz
 nnoremap k kzz
+nnoremap <Down> jzz
+nnoremap <Up> kzz
