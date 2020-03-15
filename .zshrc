@@ -102,5 +102,8 @@ export EDITOR=nvim
 alias vi='nvim'
 alias vim='nvim'
 source /opt/ros/melodic/setup.zsh
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+eval "$(zoxide init zsh)"
+
+fd() { local dir dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+      -print 2> /dev/null | fzf +m) && cd "$dir"}
 

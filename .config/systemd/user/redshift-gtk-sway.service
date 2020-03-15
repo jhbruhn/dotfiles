@@ -2,6 +2,7 @@
 [Unit]
 Description=Eyestrain remover.
 PartOf=graphical-session.target
+After=geoclue-agent.service
 
 [Service]
 Type=simple
