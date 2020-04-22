@@ -52,6 +52,7 @@ colorscheme NeoSolarized
 set background=dark
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
+set t_Co=256
 
 " Use filetype detection and file-based automatic indenting.
 filetype plugin indent on

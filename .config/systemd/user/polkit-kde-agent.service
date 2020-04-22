@@ -1,0 +1,12 @@
+[Unit]
+Description=KDE Polkit Agent
+After=polkit.service graphical-session.target sway.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/polkit-kde-authentication-agent-1
+Restart=always
+
+[Install]
+WantedBy=sway-session.target
