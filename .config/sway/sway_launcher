@@ -8,6 +8,8 @@
 
 HIST_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/sway-launcher-history.txt"
 
+export PATH=~/bin:$PATH
+
 # Get shell command list
 # This may include the occasional non-executable file
 command_list=$({ IFS=:; ls -H $PATH; } | grep -v '/.*' | sort -u)
@@ -59,5 +61,5 @@ printf "%s\n" "${update_line}" "${command_history}" | \
 
 # execute command
 echo "$command_str"
-swaymsg -t command exec "env $command_str"
+swaymsg -t command exec "env MESA_LOADER_DRIVER_OVERRIDE=i965 PATH=$PATH $command_str"
 

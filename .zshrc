@@ -66,7 +66,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo)
+plugins=(git sudo command-time)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,9 +101,12 @@ export PATH="/home/jhbruhn/bin:$PATH"
 export EDITOR=nvim
 alias vi='nvim'
 alias vim='nvim'
-source /opt/ros/melodic/setup.zsh
 eval "$(zoxide init zsh)"
+
+export MESA_LOADER_DRIVER_OVERRIDE=i965
 
 fd() { local dir dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
       -print 2> /dev/null | fzf +m) && cd "$dir"}
+
+alias ssh="TERM=xterm-256color ssh"
 

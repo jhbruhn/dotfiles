@@ -22,6 +22,8 @@ Plugin 'iCyMind/NeoSolarized'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+
 "Plugin 'Conque-GDB'
 call vundle#end()            " required
 
@@ -46,7 +48,7 @@ filetype plugin indent on    " required
 let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/eurorack-modules/'
 
-let g:ycm_clangd_args = ['-query-driver=/usr/local/arm-*/bin/arm-none-eabi*,/usr/bin/avr-*,/usr/bin/arm-none-eabi*']
+let g:ycm_clangd_args = ['-query-driver=/usr/bin/avr-*,/usr/bin/arm-none-eabi*']
 set termguicolors
 colorscheme NeoSolarized
 set background=dark
@@ -75,3 +77,7 @@ nnoremap j jzz
 nnoremap k kzz
 nnoremap <Down> jzz
 nnoremap <Up> kzz
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
+:set mouse=a

@@ -1,6 +1,15 @@
+set ifs "\n"
+
 cmd open ${{
     case $(file --mime-type $f -b) in
-        text/*) nvim $fx;;
+        text/*) $EDITOR $fx;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
+# trash...shash
+%mkdir -p ~/.trash
+cmd trash %set -f; mv $fx ~/.trash
+map <delete> trash
+
+

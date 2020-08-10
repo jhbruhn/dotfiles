@@ -1,5 +1,5 @@
 actions=1
-font=Iosevka Term 11
+font=Iosevka Term Slab 11
 background-color=#121212DD
 text-color=#CCCCCC
 format=<b>%s</b>\n\n%b\n
