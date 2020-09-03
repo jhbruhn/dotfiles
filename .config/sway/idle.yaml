@@ -1,0 +1,5 @@
+---
+debug: false
+wait: true
+timeouts:
+before-sleep: '~/bin/lock'
