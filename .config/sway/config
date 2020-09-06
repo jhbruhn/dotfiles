@@ -54,8 +54,8 @@ output eDP-1 {
 }
 
 set $laptop eDP-1
-bindswitch --locked lid:on exec 'swaymsg "output $laptop disable"'
-bindswitch --locked lid:off exec 'swaymsg "output $laptop enable"'
+#bindswitch --locked lid:on exec 'swaymsg "output $laptop disable"'
+#bindswitch --locked lid:off exec 'swaymsg "output $laptop enable"'
 
 # i3 config file (v4)
 #
@@ -129,7 +129,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+o exec --no-startup-id swaylock-blur
+bindsym $mod+o exec --no-startup-id ~/bin/lock --fade-in 0.2
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -231,20 +231,21 @@ bindsym XF86MonBrightnessUp exec brillo -A 3 -q -u 100000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#	font pango:iosevka, FontAweseome 10.85
+bar {
+	font pango:Iosevka Term
 	#font pango:FontAwesome 11
 	#font pango:Inconsolata 10
 	#font pango:DejaVu Sans Mono, FontAwesome 11
-#	swaybar_command waybar
+	#status_command while ~/.config/sway/status_bar.sh; do sleep 1; done
+    #swaybar_command swaybar
+    swaybar_command waybar
 #        status_command bumblebee-status -m disk:home load cpu memory battery pasink pasource date time -p time.format="%H:%M" -t solarized-powerline 
-#}
+}
 
 include /etc/sway/config.d/10-service.conf
 
 exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
 # exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec --no-startup-id swaylock -f -c 002b36
 exec mako
 exec autotiling
 
@@ -253,6 +254,7 @@ exec autotiling
 #client.unfocused        #002b36 #073642 #839496 #073642 #002b36
 #client.urgent 		#002b36 #dc322f #fdf6e3 #002b36 #002b36
 
+output * bg #002b36 solid_color
 
 client.focused #6268bd #268bd2 #fdf6e3 #6c71c4
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
