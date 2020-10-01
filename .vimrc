@@ -73,10 +73,10 @@ set expandtab       " Expand TABs to spaces.
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 autocmd BufNewFile,BufRead makefile* set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
-nnoremap j jzz
-nnoremap k kzz
-nnoremap <Down> jzz
-nnoremap <Up> kzz
+"nnoremap j jzz
+"nnoremap k kzz
+"nnoremap <Down> jzz
+"nnoremap <Up> kzz
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
