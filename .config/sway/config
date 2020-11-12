@@ -189,8 +189,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -219,7 +217,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
+for_window [app_id="firefox" title="Firefox . Weitergabe.Indikator"] {
+  kill
+}
+
+bindsym $mod+g exec grim -g "$(slurp)" - | wl-copy
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -229,30 +231,9 @@ bindsym XF86MonBrightnessDown exec brillo -U 3 -q -u 100000
 bindsym XF86MonBrightnessUp exec brillo -A 3 -q -u 100000
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-	font pango:Iosevka Term
-	#font pango:FontAwesome 11
-	#font pango:Inconsolata 10
-	#font pango:DejaVu Sans Mono, FontAwesome 11
-	#status_command while ~/.config/sway/status_bar.sh; do sleep 1; done
-    #swaybar_command swaybar
     swaybar_command waybar
-#        status_command bumblebee-status -m disk:home load cpu memory battery pasink pasource date time -p time.format="%H:%M" -t solarized-powerline 
 }
-
-include /etc/sway/config.d/10-service.conf
-
-exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
-# exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec mako
-exec autotiling
-
-#client.focused          #002b36 #586e75 #fdf6e3 #268bd2 #002b36
-#client.focused_inactive #002b36 #073642 #839496 #073642 #002b36
-#client.unfocused        #002b36 #073642 #839496 #073642 #002b36
-#client.urgent 		#002b36 #dc322f #fdf6e3 #002b36 #002b36
 
 output * bg #002b36 solid_color
 
@@ -260,3 +241,12 @@ client.focused #6268bd #268bd2 #fdf6e3 #6c71c4
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+include /etc/sway/config.d/10-service.conf
+
+exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
+exec mako
+exec autotiling
+exec wlsunset -l 51.5 -L 7.5
+exec poweralertd
+
