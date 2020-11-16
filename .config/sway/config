@@ -259,8 +259,8 @@ set $nord15 #b48ead
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $nord2  $nord2  $nord5  $nord2    $nord2
-client.focused_inactive $nord0  $nord0  $nord4  $nord0    $nord0
-client.unfocused        $nord0  $nord0  $nord5  $nord0    $nord0
+client.focused_inactive $nord0  $nord0  $nord4  $nord1    $nord1
+client.unfocused        $nord0  $nord0  $nord5  $nord1    $nord1
 client.urgent           $nord11 $nord1  $nord5  $nord11   $nord1
 
 output * bg $nord3 solid_color
@@ -280,6 +280,6 @@ include /etc/sway/config.d/10-service.conf
 exec_always ~/bin/import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name font-name:gtk-font-name
 exec mako
 exec autotiling
-exec wlsunset -l 51.5 -L 7.5
+exec wlsunset -l 51.5 -L 7.5 -t 2800
 exec poweralertd
 
