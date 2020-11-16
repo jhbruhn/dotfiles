@@ -2,4 +2,7 @@
 
 #somehow solarized
 
-swaylock -f -c 002b36 -K --font="Iosevka" --clock --indicator --screenshots --effect-blur 7x5 --ring-color 839496 --ring-ver-color 859900 --inside-ver-color 859900 --inside-color 002b36 --text-color 839496 --ring-wrong-color dc322f $@
+#swaylock -f -c 002b36 -K --font="Iosevka" --clock --indicator --screenshots --effect-blur 7x5 --ring-color 839496 --ring-ver-color 859900 --inside-ver-color 859900 --inside-color 002b36 --text-color 839496 --ring-wrong-color dc322f $@
+
+#somehow nord
+swaylock -f -c 002b36 -K --font="Iosevka" --clock --indicator --screenshots --effect-blur 7x5 --ring-color 3b4252 --ring-ver-color 81a1c1 --inside-ver-color 5e81ac --inside-color 2e3440 --text-color eceff4 --ring-wrong-color d08770 --line-uses-ring --separator-color 3b4252 $@

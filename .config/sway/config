@@ -87,7 +87,7 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $launcher env PATH=/home/jhbruhn/bin:$PATH ~/.config/sway/sway_launcher #env MOZ_ENABLE_WAYLAND=1
+set $launcher env PATH=/home/jhbruhn/bin:$PATH TERMINAL_COMMAND=exec sway-launcher-desktop
 
 bindsym $mod+d exec exec alacritty --class launcher -e sh -c \'$launcher\'
 for_window [app_id="^launcher$"] floating enable, border none 
@@ -217,9 +217,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-for_window [app_id="firefox" title="Firefox . Weitergabe.Indikator"] {
-  kill
-}
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+for_window [app_id="firefox" title="^Firefox - Sharing Indicator$"] floating enable, sticky enable
+# for_window [app_id="firefox" title="^Login mit PayPal - Mozilla Firefox$"] floating enable
+# for_window [app_id="firefox" title="^Loggen Sie sich bei PayPal ein - Mozilla Firefox$"] floating enable
+for_window [app_id="thunderbird" title="Erinnerung(en)?$"] floating enable, sticky enable
+for_window [app_id="thunderbird" title="Reminder$"] floating enable, sticky enable
 
 bindsym $mod+g exec grim -g "$(slurp)" - | wl-copy
 
@@ -235,12 +238,42 @@ bar {
     swaybar_command waybar
 }
 
-output * bg #002b36 solid_color
 
-client.focused #6268bd #268bd2 #fdf6e3 #6c71c4
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
-client.unfocused #073642 #073642 #93a1a1 #586e75
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+# Nord
+set $nord0 #2e3440
+set $nord1 #3b4252
+set $nord2 #434C5E
+set $nord3 #4C566A
+set $nord4 #d8dee9
+set $nord5 #e5e9f0
+set $nord6 #ECEFF4
+set $nord7 #8fbcbb
+set $nord8 #88c0d0
+set $nord9 #81a1c1
+set $nord10 #5e81ac
+set $nord11 #bf616a
+set $nord12 #d08770
+set $nord13 #ebcb8b
+set $nord14 #a3be8c
+set $nord15 #b48ead
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $nord2  $nord2  $nord5  $nord2    $nord2
+client.focused_inactive $nord0  $nord0  $nord4  $nord0    $nord0
+client.unfocused        $nord0  $nord0  $nord5  $nord0    $nord0
+client.urgent           $nord11 $nord1  $nord5  $nord11   $nord1
+
+output * bg $nord3 solid_color
+client.background       #ffffff
+
+# Solarized
+# client.focused #6268bd #268bd2 #fdf6e3 #6c71c4
+# client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
+# client.unfocused #073642 #073642 #93a1a1 #586e75
+# client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+# output * bg #002b36 solid_color
+
 
 include /etc/sway/config.d/10-service.conf
 

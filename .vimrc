@@ -23,6 +23,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
+Plugin 'arcticicestudio/nord-vim'
 
 "Plugin 'Conque-GDB'
 call vundle#end()            " required
@@ -50,7 +51,8 @@ let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/euro
 
 let g:ycm_clangd_args = ['-query-driver=/usr/bin/avr-*,/usr/bin/arm-none-eabi*']
 set termguicolors
-colorscheme NeoSolarized
+" colorscheme NeoSolarized
+colorscheme nord
 set background=dark
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
