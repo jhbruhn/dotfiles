@@ -25,7 +25,9 @@ window#waybar {
     color: #d8dee9;
 }
 #workspaces button.focused {
-    color: #A3BE8C;
+    color: #BF616A;
+    font-family: "Iosevka Term Slab";
+    font-weight: bold;
     /*color: #bf616a;*/
 }
 #workspaces button:hover {
