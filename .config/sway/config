@@ -1,6 +1,8 @@
 # System dependent inputs/outputs
 include /etc/sway/config.d/20-io.conf
 
+set $mod Mod4
+
 include $HOME/.config/tiling/config.d/*.conf
 
 # set $laptop eDP-1
