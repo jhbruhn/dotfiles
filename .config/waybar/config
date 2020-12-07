@@ -89,6 +89,8 @@
         "format-icons": ["", ""]
     },
     "battery": {
+        "bat": "BAT0",
+        "full-at": 91,
         "states": {
             // "good": 95,
             "warning": 30,

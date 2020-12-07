@@ -5,30 +5,43 @@ set noshowmode
 set nu
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'valloric/youcompleteme'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'embear/vim-localvimrc'
-Plugin 'iCyMind/NeoSolarized'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'arcticicestudio/nord-vim'
+" Plug 'VundleVim/Vundle.vim'
+" Plin 'valloric/youcompleteme'
+" Plug 'Chiel92/vim-autoformat'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'embear/vim-localvimrc'
+Plug 'iCyMind/NeoSolarized'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'arcticicestudio/nord-vim'
+
+" completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-syntax'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'lionawurscht/deoplete-biblatex'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'junegunn/fzf'
+Plug 'Shougo/echodoc.vim'
 
 "Plugin 'Conque-GDB'
-call vundle#end()            " required
+call plug#end()            " required
 
-map <C-a> :Autoformat<CR>
+map <C-a> :call LanguageClient#textDocument_formatting()<CR>
+" :Autoformat<CR>
 
 syntax enable
 filetype plugin indent on    " required
@@ -44,12 +57,36 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-"
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+"langserver
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ 'cpp': ['clangd', '-query-driver=/usr/bin/avr-*,/usr/bin/arm-none-eabi*', '-fallback-style=google'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
 
 let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist='/home/jhbruhn/eurorack/eurorack-dev-environment/eurorack-modules/'
 
 let g:ycm_clangd_args = ['-query-driver=/usr/bin/avr-*,/usr/bin/arm-none-eabi*']
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
+let g:ycm_auto_hover='CursorHold'
+
 set termguicolors
 " colorscheme NeoSolarized
 colorscheme nord
@@ -83,3 +120,5 @@ autocmd BufNewFile,BufRead makefile* set tabstop=8 shiftwidth=8 softtabstop=0 no
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 :set mouse=a
+set signcolumn=yes
+

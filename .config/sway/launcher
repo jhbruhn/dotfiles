@@ -1,0 +1,31 @@
+#!/bin/sh
+cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+histsize=50
+if [ -d "$cachedir" ]; then
+    cache=$cachedir/emenu
+    hist=$cachedir/emenu_hist
+else
+    cache=$HOME/.emenu_cache # if no xdg dir, fall back to dotfile in ~
+    hist=$HOME/.emenu_cache_hist # if no xdg dir, fall back to dotfile in ~
+fi
+if [ ! -e "$hist" ]; then
+    touch "$hist"
+    echo foo
+fi
+echo $PATH
+cmd=$(
+    IFS=:
+    if stest -dqr -n "$cache" $PATH; then
+        j4-dmenu-desktop --dmenu="(tac $hist ; cat ; (stest -flx $(echo $PATH | tr : ' ') | sort -u | tee $cache) ) | ~/bin/bemenu.sh" --no-exec
+    else
+        j4-dmenu-desktop --dmenu="(tac $hist; cat ; cat $cache) | ~/bin/bemenu.sh" --no-exec
+    fi
+    ) 
+echo $cmd
+#echo "$cmd" | ${SHELL:-"/bin/sh"} &
+if [ ! -z "$cmd" ]; then
+    swaymsg "exec $cmd"
+
+    sed -i -e "/^${cmd}$/d;${histsize}q" "$hist"
+    echo "$cmd" >> "$hist"
+fi

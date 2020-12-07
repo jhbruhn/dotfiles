@@ -32,9 +32,9 @@ bar {
     swaybar_command waybar
 }
 
-set $launcher env PATH=/home/jhbruhn/bin:$PATH TERMINAL_COMMAND=exec sway-launcher-desktop
+set $launcher env PATH=/home/jhbruhn/bin:$PATH ~/.config/sway/launcher
 
-bindsym $mod+d exec exec alacritty --class launcher -e sh -c \'$launcher\'
+bindsym $mod+d exec $launcher
 for_window [app_id="^launcher$"] floating enable, border none 
 
 
