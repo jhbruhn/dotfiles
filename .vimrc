@@ -37,6 +37,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'junegunn/fzf'
 Plug 'Shougo/echodoc.vim'
 
+"langs
+Plug 'cespare/vim-toml'
+
+
 "Plugin 'Conque-GDB'
 call plug#end()            " required
 
@@ -65,7 +69,7 @@ let g:deoplete#enable_at_startup = 1
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
+    \ 'rust': ['rust-analyzer'],
     \ 'cpp': ['clangd', '-query-driver=/usr/bin/avr-*,/usr/bin/arm-none-eabi*', '-fallback-style=google'],
     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
@@ -97,6 +101,9 @@ set t_Co=256
 
 " Use filetype detection and file-based automatic indenting.
 filetype plugin indent on
+
+" Set .tera template files as html
+au BufReadPost *.tera set syntax=html
 
 " Use actual tab chars in Makefiles.
 

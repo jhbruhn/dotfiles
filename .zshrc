@@ -110,3 +110,5 @@ fd() { local dir dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
 alias lf=ranger
 # alias ssh="TERM=xterm-256color ssh"
 export PATH="$HOME/.radicle/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+

@@ -16,7 +16,9 @@ selectedFg="#88C0D0"
 scrollbarBg=$DRACULA_PURPLE
 scrollbarFg=$DRACULA_WHITE
 
+    #-m $(swaymsg -r -t get_outputs | jq '. [] | select (.focused == true) | .name | split ("-") | last') \
 bemenu \
+    -m$(swaymsg -r -t get_outputs | jq '. | reverse | to_entries | .[] | select(.value.focused == true) | .key') \
   --ignorecase \
   --fn $font \
   --tb $titleBg \
