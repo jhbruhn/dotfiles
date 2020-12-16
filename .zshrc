@@ -103,12 +103,19 @@ alias vi='nvim'
 alias vim='nvim'
 eval "$(zoxide init zsh)"
 
-export MESA_LOADER_DRIVER_OVERRIDE=i965
 
 fd() { local dir dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
       -print 2> /dev/null | fzf +m) && cd "$dir"}
 alias lf=ranger
+alias ll='exa --group-directories-first'
+alias ls='exa -l --group-directories-first'
+alias la='exa -a --group-directories-first'
+alias lal='exa -al --group-directories-first'
+
 # alias ssh="TERM=xterm-256color ssh"
+
+
 export PATH="$HOME/.radicle/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export MESA_LOADER_DRIVER_OVERRIDE=i965
